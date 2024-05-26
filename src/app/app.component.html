@@ -1,0 +1,60 @@
+<div class="container-xl">
+  <h1 id="tableLabel">AIRIE</h1>
+</div>
+<div class="container-l">
+  <p>Welcome to the AIRIE Immigration Hub.</p>
+</div>
+
+
+<div class="container" style="padding-top:100px">
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col">
+      Please enter your primary language
+    </div>
+    <div class="col">
+      <select class="form-select" [(ngModel)]="selectedLanguage" aria-label="Select your language">
+        <option *ngFor="let language of Languages">{{language.name}}</option>
+      </select>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row" style="min-height:20px"></div>
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col">
+      Please enter your passport
+    </div>
+    <div class="col">
+      <select class="form-select" [(ngModel)]="selectedCountry" aria-label="Select your country">
+        <option *ngFor="let country of Countries">{{country.name}}</option>
+      </select>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row" style="min-height:20px"></div>
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col">
+      Please enter the purpose of your visit:
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="query" class="form-control" placeholder="Enter purpose....">
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row" style="min-height:20px"></div>
+  <div class="row">
+    <div class="col"> </div>
+
+    <div class="col" style="text-align:center"><button type="button" (click)="onSubmit()" class="btn btn-primary">Search</button></div>
+    <div class="col"> </div>
+  </div>
+  <div class="row" style="min-height:20px"></div>
+  <div class="row">
+    <div class="col"> </div>
+
+    <p>{{queryResponse}}</p>
+    <div class="col"> </div>
+  </div>
+</div>
