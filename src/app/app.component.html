@@ -1,0 +1,87 @@
+<nav class="navbar navbar-light bg-light static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#!">Airie Immigration Assistant</a>
+    <a class="btn btn-outline-danger" (click)="onChangeLanguage('English')">English</a>
+    <a class="btn" (click)="onChangeLanguage('Korean')">Korean</a>
+    <a class="btn btn-primary" href="#signup">I know the Visa I want</a>
+  </div>
+</nav>
+<!-- Masthead-->
+<header class="masthead">
+  <div class="container position-relative">
+    <div class="row" [hidden]="hasResponse||working">
+
+      <div class="col-6">
+        <div class="text-center text-white">
+          <!-- Page heading-->
+          <h1 class="mb-5" style="color:white">Welcome to Airie</h1>
+
+
+          <div class="row">
+            <div class="col">
+              <input id="immigrationQuery" [(ngModel)]="query" class="form-control" type="text" placeholder="Enter your query" />
+
+            </div>
+
+          </div>
+          <div class="row" style="padding-top:10px">
+            <div class="col">
+              <button class="btn btn-primary btn-lg" id="submitButton" (click)="onSubmit()" type="submit">Submit</button>
+            </div>
+          </div>
+          
+
+
+        </div>
+      </div>
+    </div>
+    <div class="row" [hidden]="!working">
+      <div class="col-2"></div>
+      <div class="progress">
+        <div [hidden]="workingVal>0" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=10" class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=20" class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=30" class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=40" class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=50" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=60" class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=70" class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=80" class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=90" class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+        <div [hidden]="workingVal!=100" class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="75" aria-valuemin="100" aria-valuemax="100"></div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row" [hidden]="!hasResponse||working" style="color:white">
+      <div class="row">
+        <div class="col"> </div>
+
+        <p class="lead">{{queryResponse}}</p>
+        <div class="col"> </div>
+      </div>
+      <div class="row" style="min-height:20px"></div>
+      <div class="row" *ngFor="let visa of visaList">
+
+        <div class="col6" style="text-align:center">
+          <button class="btn btn-lg btn-light">{{visa.visa}}</button>
+        </div>
+
+        <div class="col6" style="text-align:center">
+          <p>{{visa.visaDescription}}</p>
+        </div>
+        <div class="row" style="min-height:10px"></div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col"> </div>
+
+        <div class="col" style="text-align:center"><button type="button" (click)="onGoBack()" class="btn btn-success">Try Again</button></div>
+        <div class="col"> </div>
+      </div>
+    </div>
+  
+  </div>
+</header>
+
